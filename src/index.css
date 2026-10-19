@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ivory font-sans text-ink antialiased; font-size: 1.0625rem; line-height: 1.7; }
+  h1, h2, h3 { @apply font-serif text-dusk-deep; line-height: 1.12; letter-spacing: -0.01em; }
+  h1 { @apply text-5xl sm:text-6xl; }
+  h2 { @apply text-3xl sm:text-4xl; }
+  h3 { @apply text-2xl; }
+  :focus-visible { outline: 3px solid #A8552F; outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .eyebrow { @apply font-sans text-xs font-semibold uppercase text-copper-dark; letter-spacing: 0.18em; }
+  .prose-page p + p { @apply mt-5; }
+  .link-inline { @apply text-copper-dark underline decoration-copper-light underline-offset-4 transition-colors hover:text-dusk-deep; }
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+}
